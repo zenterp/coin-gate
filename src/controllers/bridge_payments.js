@@ -1,4 +1,4 @@
-module.exports = function() {
+module.exports = function(gatewayd) {
   return {
     create: function(req, res, next) {
       res.status(200).send({
@@ -14,11 +14,22 @@ module.exports = function() {
         }
       })
     },
+
     show: function(req, res, next) {
-      res.status(200).send({
-        success        : true,
-        bridge_payment : {
-          id           : req.params.id
+      gatewayd.data.models.gatewayTransactions.find({
+        where: { uid: req.params.id }
+      })
+      .then(function(gatewayTransaction) {
+        if (gatewayTransaction) {
+          var json = gatewayTransaction.toJSON();
+          json.id = json.uid;
+          delete json.uid
+          res.status(200).send({
+            success        : true,
+            bridge_payment : json
+          })
+        } else {
+          next(new Error('bridge payment not found'))
         }
       })
     }
