@@ -1,9 +1,7 @@
-var fs                = require('fs');
-var express           = require('express');
-var app               = express();
-var path              = require('path');
-var BridgesRoutes     = require('bridges-routes');
-var BridgesController = require('bridges-controller');
+var fs                 = require('fs');
+var path               = require('path');
+var BridgesApplication = require('bridges-application');
+
 var gatewayd;
 
 if (fs.existsSync(process.env.GATEWAYD_PATH)) {
@@ -12,26 +10,12 @@ if (fs.existsSync(process.env.GATEWAYD_PATH)) {
   throw new Error('invalid path to gatewayd as GATEWAYD_PATH environment variable');
 }
 
-var controllers = BridgesController.load({
-  directory : path.join(__dirname, '/controllers'),
-  inject    : [gatewayd]
-})
-
-app.use('/v1', BridgesRoutes.draw({
-  controllers : controllers,
-  path        : path.join(__dirname, 'config/routes')
-}))
-
-app.use(function(error, req, res, next) {
-  if (error) {
-    res.status(500).send({
-      success: false,
-      error  : error.message
-    })
-  } else {
-    next()
+var application = new BridgesApplication({
+  root: __dirname,
+  controllers: {
+    inject: [gatewayd]
   }
 })
 
-module.exports = app
+module.exports = application
 
