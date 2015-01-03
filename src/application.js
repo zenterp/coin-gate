@@ -1,7 +1,7 @@
 var express           = require('express');
 var app               = express();
 var path              = require('path');
-var BridgesRoutes     = require(path.join(__dirname, '/lib/bridges_routes'))
+var BridgesRoutes     = require('bridges-routes');
 var BridgesController = require(path.join(__dirname, '/lib/bridges_controller'))
 var gatewayd          = require('gatewayd');
 
