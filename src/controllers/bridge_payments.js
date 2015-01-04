@@ -1,4 +1,6 @@
-module.exports = function(gatewayd) {
+module.exports = function(dependencies) {
+  var gatewayd = dependencies[0];
+
   return {
     create: function(req, res, next) {
       res.status(200).send({

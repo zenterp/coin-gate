@@ -5,14 +5,18 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "npm run build && node build/server",
+    "start": "npm run build && node build/bridges",
     "build": "gulp"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "bluebird": "^2.5.3",
     "body-parser": "^1.10.1",
-    "bridges-application": "^0.1.0"
+    "bridges-application": "^0.1.0",
+    "domain-supervisor": "^0.3.1",
+    "require-all-to-camel": "^1.0.0",
+    "sql-mq-worker": "^1.0.3"
   },
   "devDependencies": {
     "6to5": "^2.4.8",
