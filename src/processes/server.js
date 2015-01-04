@@ -1,5 +1,5 @@
 var path           = require('path')
-var BridgesExpress = require(path.join(__dirname, '/../lib/bridges_express'))
+var BridgesExpress = require('bridges-express')
 var port           = process.env.PORT || 5000
 
 module.exports = function(gatewayd) {

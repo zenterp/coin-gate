@@ -12,6 +12,7 @@
   "license": "ISC",
   "dependencies": {
     "bridges-application": "^0.1.0",
+    "bridges-express": "^0.1.0",
     "bridges-supervisor": "^0.1.0",
     "sql-mq-worker": "^1.0.3"
   },
