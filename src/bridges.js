@@ -1,5 +1,5 @@
 var path               = require('path')
-var BridgesApplication = require(path.join(__dirname,'/lib/bridges_application'))
+var BridgesApplication = require('bridges-application')
 var fs                 = require('fs')
 var gatewayd
 
