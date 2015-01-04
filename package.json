@@ -11,11 +11,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "bluebird": "^2.5.3",
-    "body-parser": "^1.10.1",
     "bridges-application": "^0.1.0",
-    "domain-supervisor": "^0.3.1",
-    "require-all-to-camel": "^1.0.0",
+    "bridges-supervisor": "^0.1.0",
     "sql-mq-worker": "^1.0.3"
   },
   "devDependencies": {

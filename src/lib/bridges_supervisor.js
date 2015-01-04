@@ -10,14 +10,10 @@ class BridgesSupervisor {
     this.inject      = options.inject || []
 
     this.onError = function(error, restart, crash) {
-      if (true) {
-        console.log('bridges:supervisor:error', error.stack);
-        console.log('bridges:supervisor:restart')
-        restart();
-      } else {
-        // never crash the unix process, but it is an option
-        crash(error);
-      }
+      console.log('bridges:supervisor:error:message', error.message)
+      console.log('bridges:supervisor:error:stack'  , error.stack);
+      console.log('bridges:supervisor:restart')
+      restart();
     }
   }
 

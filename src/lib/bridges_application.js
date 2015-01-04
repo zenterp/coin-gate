@@ -1,5 +1,5 @@
+var BridgesSupervisor = require('bridges-supervisor')
 var path              = require('path')
-var BridgesSupervisor = require(path.join(__dirname, 'bridges_supervisor'))
 var fs                = require('fs')
 
 class BridgesApplication {
